@@ -1,10 +1,11 @@
 package RT::Action::SetStatus;
 
-
 our $VERSION = '0.01';
 
 use warnings;
 use strict;
+
+use base qw(RT::Action);
 
 sub Prepare { 
     my $self = shift;
