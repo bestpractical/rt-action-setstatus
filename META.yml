@@ -1,11 +1,10 @@
 ---
-abstract: 'Simple status changing action, includes actions for the default RT statuses'
+abstract: 'Simple status changing action, generates actions based on your config'
 author:
   - 'Kevin Falcone  C<< <falcone@bestpractical.com> >>'
   - 'Kevin Falcone <falcone@bestpractical.com>'
 build_requires:
   ExtUtils::MakeMaker: 6.42
-  Test::More: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
