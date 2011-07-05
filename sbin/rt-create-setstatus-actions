@@ -38,7 +38,12 @@ for my $status ( $queue->StatusArray ) {
 }
 
 if ( $opt{create} ) {
-    for my $status ( keys %{$statuses->{create}} ) {
+    unless ( %{$statuses->{create}||{}} ) {
+        print "Found no ScripActions to create\n";
+        exit;
+    }
+
+    for my $status ( sort keys %{$statuses->{create}} ) {
         my ($ret,$msg) = $scrip_action->Create( Name        => "Set Status to $status",
                                                 Description => "Sets this ticket's status to $status",
                                                 ExecModule  => 'SetStatus',
@@ -52,11 +57,13 @@ if ( $opt{create} ) {
         }
     }
 } else {
-    for my $status ( keys %{$statuses->{create}} ) {
-        print "Couldn't find existing ScripAction 'Set Status to $status'.\n";
+    for my $status ( sort keys %{$statuses->{create}} ) {
+        print "Would create ScripAction 'Set Status to $status'.\n";
     }
-    for my $status ( keys %{$statuses->{exists}} ) {
+    for my $status ( sort keys %{$statuses->{exists}} ) {
         print "Found existing ScripAction 'Set Status to $status'.\n";
     }
-    print "To create any new ScripActions, rerun with --create\n";
+    if ( %{$statuses->{create}||{}} ) {
+        print "To create any new ScripActions, rerun with --create\n";
+    }
 }
