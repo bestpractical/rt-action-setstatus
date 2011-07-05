@@ -1,6 +1,6 @@
 use inc::Module::Install;
 
-name     'RT-Action-SetStatus';
+RTx 'RT-Action-SetStatus';
 all_from 'lib/RT/Action/SetStatus.pm';
 readme_from 'lib/RT/Action/SetStatus.pm';
 author   q{Kevin Falcone <falcone@bestpractical.com>};
