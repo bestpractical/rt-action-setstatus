@@ -52,6 +52,14 @@ RT::Action::SetStatus - Simple status changing action, generates actions based o
     5. Clear your mason cache
          rm -rf /opt/rt3/var/mason_data/obj
     6. Restart your webserver
+    7. Create new Scrip Actions by using sbin/rt-create-setstatus-actions
+        /opt/rt3/local/plugins/RT-Action-SetStatus/sbin/rt-create-setstatus-actions
+        read the actions it will create, see if they're sane, if so
+        /opt/rt3/local/plugins/RT-Action-SetStatus/sbin/rt-create-setstatus-actions --create
+        watch for errors
+
+        If you add a new Status, you can rerun this script and it will generate only new ScripActions
+
 
 =head1 AUTHOR
 
